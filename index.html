@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Nutrition Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1 id="title"></h1>
+  <div class="hbar">
+    <span id="net" class="net" role="status"></span>
+    <button type="button" id="lang" class="ghost"></button>
+  </div>
+</header>
+<div id="warn" class="warn" hidden></div>
+<main>
+  <form id="form" novalidate>
+    <div class="grid">
+      <label>
+        <span data-t="name"></span>
+        <input id="name" type="text" autocomplete="off" aria-describedby="err-name">
+        <small class="err" id="err-name"></small>
+      </label>
+      <label>
+        <span data-t="gender"></span>
+        <select id="gender" aria-describedby="err-gender"></select>
+        <small class="err" id="err-gender"></small>
+      </label>
+      <label>
+        <span data-t="age"></span>
+        <input id="age" type="number" inputmode="decimal" min="1" max="120" step="any" aria-describedby="err-age">
+        <small class="err" id="err-age"></small>
+      </label>
+      <label>
+        <span data-t="activity"></span>
+        <select id="activity" aria-describedby="err-activity"></select>
+        <small class="err" id="err-activity"></small>
+      </label>
+      <label>
+        <span data-t="height"></span>
+        <input id="height" type="number" inputmode="decimal" min="50" max="250" step="any" aria-describedby="err-height">
+        <small class="err" id="err-height"></small>
+      </label>
+      <label>
+        <span data-t="weight"></span>
+        <input id="weight" type="number" inputmode="decimal" min="10" max="500" step="any" aria-describedby="err-weight">
+        <small class="err" id="err-weight"></small>
+      </label>
+    </div>
+    <div class="actions">
+      <button type="submit" class="primary" data-t="calc"></button>
+      <button type="reset" class="secondary" data-t="reset"></button>
+    </div>
+  </form>
+
+  <section id="results" hidden aria-live="polite">
+    <div class="cards" id="cards"></div>
+    <p class="note" data-t="saveNote"></p>
+    <div class="actions wrap">
+      <button type="button" id="save" class="primary"></button>
+      <button type="button" id="print" class="secondary" data-t="print"></button>
+    </div>
+  </section>
+
+  <section id="saved">
+    <div class="row">
+      <h2 data-t="records"></h2>
+      <button type="button" id="clear" class="danger" data-t="clearAll"></button>
+    </div>
+    <ul id="list"></ul>
+  </section>
+  <p class="disc" data-t="disclaimer"></p>
+</main>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+:root{--bg:#f4f8f7;--card:#fff;--ink:#12332f;--mut:#4b6561;--pri:#0f766e;--pri2:#0b5c56;--line:#c5d8d4;--err:#b42318;--warn:#fff4d6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+header{display:flex;justify-content:space-between;align-items:center;gap:.5rem;background:var(--pri);color:#fff;padding:.75rem 1rem}
+h1{font-size:1.15rem;margin:0}h2{font-size:1.05rem;margin:0}
+.hbar{display:flex;align-items:center;gap:.6rem}
+.net{font-size:.8rem;display:flex;align-items:center;gap:.3rem}
+.net::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:#4ade80}
+.net.off::before{background:#fbbf24}
+main{max-width:860px;margin:0 auto;padding:1rem;padding-bottom:5rem}
+.grid{display:grid;gap:.9rem;grid-template-columns:1fr}
+label{display:block;font-weight:600}
+input,select{width:100%;min-height:48px;margin-top:.3rem;padding:.5rem .75rem;font:inherit;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input[aria-invalid=true],select[aria-invalid=true]{border-color:var(--err)}
+.err{display:block;min-height:1.1em;color:var(--err);font-weight:500}
+button{min-height:48px;min-width:48px;padding:.5rem 1rem;font:inherit;font-weight:600;border-radius:10px;border:1.5px solid transparent;cursor:pointer}
+.primary{background:var(--pri);color:#fff}.primary:hover{background:var(--pri2)}
+.secondary{background:#fff;color:var(--pri);border-color:var(--pri)}
+.danger{background:#fff;color:var(--err);border-color:var(--err);min-height:44px}
+.ghost{background:transparent;color:#fff;border-color:#fff;min-height:44px}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.actions{display:flex;gap:.6rem;margin-top:.5rem}.actions button{flex:1}
+/* sticky Calculate/Reset on phones */
+#form .actions{position:sticky;bottom:0;background:linear-gradient(transparent,var(--bg) 25%);padding:.8rem 0 .4rem}
+.wrap{flex-wrap:wrap}
+.cards{display:grid;gap:.7rem;grid-template-columns:1fr 1fr;margin-top:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.8rem;min-width:0;overflow-wrap:anywhere}
+.card.wide{grid-column:1/-1}
+.card .k{font-size:.8rem;color:var(--mut)}.card .v{font-size:1.35rem;font-weight:700;color:var(--pri)}
+.card .s{font-size:.85rem;color:var(--mut)}
+.note,.disc{font-size:.85rem;color:var(--mut)}
+.disc{border-top:1px solid var(--line);padding-top:.8rem;margin-top:1.5rem}
+.warn{background:var(--warn);padding:.7rem 1rem;border-bottom:1px solid #e6c46a}
+.row{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:1.5rem}
+ul{list-style:none;padding:0;margin:.7rem 0}
+li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.7rem;margin-bottom:.6rem;display:flex;gap:.6rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+li .info{flex:1 1 200px;min-width:0;overflow-wrap:anywhere}
+li button{min-height:44px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:repeat(3,1fr)}#form .actions{position:static;background:none}.actions button{flex:0 0 auto;min-width:140px}}
+@media print{header,#form,#saved,.actions,.note,#warn{display:none!important}body{background:#fff}.disc{display:block}}
